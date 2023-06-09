@@ -1,0 +1,273 @@
+#MainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* CSS FOR NAVABR MAINCONTAINER */
+
+#NavbarMainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+#NavabarContainer {
+    color: white;
+    display: flex;
+    width: 100%;
+}
+
+/* css for timer container  */
+#TimerContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+#Timer {
+    margin: 1%;
+    padding: 1%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.1rem;
+}
+
+
+/* css for sound container  */
+
+#SoundContainer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+
+#SoundButtonContainer {
+    margin: 1%;
+    padding: 1%;
+}
+
+#SoundButton {
+    font-size: 1.1rem;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 8px;
+    width: 100px;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    background: none;
+    color: #a8afbd;
+}
+
+#SoundButton:hover {
+    background-color: #424957;
+    color: white;
+}
+
+
+#OptionsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 1%;
+    padding: 1%;
+    width: 25%;
+}
+
+.options {
+    margin: 1%;
+    padding: 1%;
+    font-size: 1.1rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.options input {
+    cursor: pointer;
+}
+
+
+/* css for horizontal row  */
+
+#HorizontalRow {
+    width: 98%;
+    border: 1px solid white;
+}
+
+
+
+/* CSS FOR CUSTOMER USE CASE CONTAINER  */
+
+#CustomerUseCaseContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 1%;
+}
+
+/* css for source container  */
+#SourceContainer {
+    width: 15%;
+    margin-left: 10%;
+    height: 250px;
+}
+
+/* css for Scope Container */
+#ScopeContainer {
+    width: 15%;
+    height: 250px;
+}
+
+/* css for Generator Container */
+#GeneratorContainer {
+    width: 20%;
+    height: 250px;
+}
+
+/* css for Threshold Container */
+#ThresholdContainer {
+    width: 20%;
+    height: 250px;
+}
+
+
+/* common css for all the container  */
+.HeadingContainer {
+    color: white;
+}
+
+.Heading {
+    font-size: 1.4rem;
+    font-family: 'Roboto', sans-serif;
+    padding: 3px;
+    margin: 3px;
+
+}
+
+.InnerOptionContainer {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    margin: 1%;
+    padding: 1%;
+
+}
+
+.InnerOptionContainer input {
+    cursor: pointer;
+}
+
+.InputTypeNumber {
+    width: 30%;
+    border: none;
+    outline: none;
+    padding: 2%;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+/* CSS FOR LESSONS CONTAINER  */
+#LessonContainer {
+    color: white;
+    font-size: 1.14rem;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    margin: 2%;
+    width: 100%;
+
+}
+
+
+/* CSS FOR TASK CONTAINER  */
+
+#TaskMainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+#TaskGivenContainer {
+    color: white;
+    font-size: 1.6rem;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    width: 65%;
+    background-color: #222;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#InstructionPara {
+    width: 30%;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 2%;
+    border: none;
+    outline: none;
+    color: rgb(134, 133, 133);
+    font-family: 'Open Sans', sans-serif;
+    word-spacing: 0.1rem;
+}
+
+#TaskGiven {
+    width: 100%;
+}
+
+#OutOfGivenContainer {
+    color: #222;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.ValueWritten {
+    color: #222;
+    width: 62%;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 1.5%;
+    margin: 2%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}
+
+
+/* CSS FOR TASK OUTPUT STATUS  */
+
+#TaskOutputStatus {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Status {
+    color: #888;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    margin: 2%;
+    padding: 1%;
+}
