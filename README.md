@@ -99,4 +99,154 @@ const ShowOrHide = () => {
 
 ```
 
-Here in the above code snipet at first I have created the 2 variable ( i.e displayvalue and buttonstatus)
+Here in the above code snipet at first I have created the 2 variable ( i.e displayvalue and buttonstatus) using useState hook. Each of these State variables is associated with a corresponding setter function: setDisplayvalue, setButtonState.
+
+After this I have used the inline css for the container where I have created the Sounds state varialbe(i.e Correct Letter, Incorrect Letter, Passed Letter , Failed Letter) or I can say checkboxes. their I have used the display property of the css and assign it a value of displayvalue state variable.so as Initially displayvalue value is none which this container is not visible initialy .
+
+After this I have created the buttonstatus variable just to check weather the user clicked the button or not . Initially it's value is false which means user has not clicked the button yet.
+
+Now below these state variable I have created a function name as ShowOrHide and I am trigerring it using the onClick proerty in the sound button . 
+Inside this ShowOrHide function I have written the logic for changing the value of displayvalue from none to flex and from flex to none .
+
+***
+
+Now after this I have created the Logic for setting and changing the values of Source , Scope, Genearator, and Threshold .
+
+```react 
+
+const [SourceOptionValue, setSourceOptionValue] = useState("Bigrams");
+const [ScopeOptionValue, setScopeOptionValue] = useState("Top 50");
+const [CombinationValue, setCombinationValue] = useState(2);
+const [RepetitionValue, setRepetitionValue] = useState(2);
+const [WPMValue, setWpmValue] = useState(50);
+const [outPutWpmValue, setOutPutWpmValue] = useState(0);
+const [AccuracyValue, setAccuracyValue] = useState(100);
+
+const handleSourceOptionChange = (event) => {
+   setSourceOptionValue(event.target.value);
+};
+
+// taking variables for lesson passed and total lesson
+
+const [lessonPassed, setLessonPassed] = useState(1);
+const [totatLesson, setTotalLesson] = useState(25);
+
+const handleScopeOptionChange = (event) => {
+  if (event.target.value === "Top 50") {
+     setLessonPassed(1);
+     setTotalLesson(25);
+  } else if (event.target.value === "Top 100") {
+      setLessonPassed(1);
+      setTotalLesson(50);
+  } else if (event.target.value === "Top 150") {
+      setLessonPassed(1);
+      setTotalLesson(75);
+  } else {
+      setLessonPassed(1);
+      setTotalLesson(100);
+  }
+  setScopeOptionValue(event.target.value);
+};
+
+const handleCombinationValueChange = (event) => {
+  setCombinationValue(event.target.value);
+};
+
+const handleRepetitionValueChange = (event) => {
+  setRepetitionValue(event.target.value);
+};
+
+const handleWpmValueChange = (event) => {
+  setWpmValue(event.target.value);
+};
+
+const handleAccuracyValueChange = (event) => {
+  setAccuracyValue(event.target.value);
+};
+
+```
+Here also I have created the states variable for checking what value is selected inside these above mentioned contiainers (i.e Source, Scope, Generator,Threshold).
+
+so initially SourceOptionValue is setted to Bigrams, ScopeOptionValue is setted to Top 50 , CombinationValue is setted to 2 , RepetitionValue is setted to 2 WPMValue is setted to 50 , AccuracyValue is setted 100 , and outPutWpmValue is setted to 0 which is used to calculated the accuracy of the user when he starts typing the words.
+
+After assigning these default values I have created the functions named as handleSourceOptionChange() for setting the value of current choosen Source value( for eg Bigrams,Trigrams, Tetragrams).
+
+After this I have created two more state variable for taking and setting the value of lesson passed and total lesson . Initially lessonPassed value is 1 and totatLesson value is setted to 25.
+
+After this I have created the function named as handleScopeOptionChange where I am changing the Scope Option value (i.e setting any of these value : "Top 50" , "Top 100", "Top 150", "Top 200") and also before changing the Scope value I am also checking if the scope option value is "Top 50" then I am setting the value of lessonPassed to 1 and totatLesson value to 25 . Similarly for "Top 100" lessonPassed value to 1 and totatLesson value to 50 , for "Top 150" lessonPassed to 1 and totatLesson value to 75 , for "Top 200" lessonPassed to 1 and totatLesson value to 100 .
+
+After this I have Created the handleCombinationValueChange function where I have written the logic for the Combination value . Similarly inside the function handleRepetitionValueChange
+I have written the logic for the Repetition value , inside the function handleWpmValueChange I have written the logic for the Wpm Value, inside the function handleAccuracyValueChange I have written the logic for changing the Accuracy value.
+
+
+***
+
+```react 
+const [CoustomValue, setCoustomValue] = useState("");
+const [TaskGiven, setTaskGiven] = useState("");
+
+// LOGIC FOR GENERATING THE RANDOM TEXT
+
+const generateWordList = (combination, wordLength) => {
+   const wordList = [];
+   const characters = "asdfjkl;";
+
+   for (let i = 0; i < combination; i++) {
+     let word = "";
+     for (let j = 0; j < wordLength; j++) {
+       const randomChar = characters.charAt(
+         Math.floor(Math.random() * characters.length)
+       );
+       word += randomChar;
+     }
+     wordList.push(word);
+   }
+
+   return wordList;
+};
+
+const generateText = useCallback(
+  (sourceValue, combinationValue, repetitionValue, customText) => {
+    let words = [];
+
+    switch (sourceValue) {
+      case "Bigrams":
+        words = generateWordList(combinationValue, 2);
+          break;
+        case "Trigrams":
+          words = generateWordList(combinationValue, 3);
+          break;
+        case "Tetragrams":
+          words = generateWordList(combinationValue, 4);
+          break;
+        default:
+          break;
+     }
+
+     let text = "";
+
+     for (let i = 0; i < repetitionValue; i++) {
+       text += words.join(" ") + " ";
+     }
+     setTaskGiven(text);
+     setWord(text);
+   },
+   []
+);
+
+useEffect(() => {
+   generateText(
+     SourceOptionValue,
+     CombinationValue,
+     RepetitionValue,
+     CoustomValue
+   );
+}, [
+    SourceOptionValue,
+    CombinationValue,
+    RepetitionValue,
+    CoustomValue,
+    generateText,
+]);
+
+```
